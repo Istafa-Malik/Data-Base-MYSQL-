@@ -1,0 +1,395 @@
+Q1)
+
+MariaDB [hr]> select  first_name,last_name,salary from employees order by salary desc Limit 3,1;
++------------+-----------+----------+
+| first_name | last_name | salary   |
++------------+-----------+----------+
+| John       | Russell   | 14000.00 |
++------------+-----------+----------+
+1 row in set (0.001 sec)
+
+
+Q3)
+
+MariaDB [hr]> select employee_id, first_name, last_name from employees where salary = (select max(salary) from employees where salary < (select max(salary) from employees)) order by salary DESC;
++-------------+------------+-----------+
+| employee_id | first_name | last_name |
++-------------+------------+-----------+
+|         101 | Neena      | Kochhar   |
+|         102 | Lex        | De Haan   |
++-------------+------------+-----------+
+2 rows in set (0.006 sec)
+
+
+Q4)
+
+MariaDB [hr]> select first_name, last_name from employees where salary >( select MAX(salary) from employees where first_name IN ('Peter','Lisa'));
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Steven     | King      |
+| Neena      | Kochhar   |
+| Lex        | De Haan   |
+| Nancy      | Greenberg |
+| John       | Russell   |
+| Karen      | Partners  |
+| Alberto    | Errazuriz |
+| Michael    | Hartstein |
+| Shelley    | Higgins   |
++------------+-----------+
+9 rows in set (0.000 sec)
+
+Q5)
+
+MariaDB [hr]> select first_name, salary from employees where salary in (select avg(salary) from employees GROUP by department_id);
++------------+----------+
+| first_name | salary   |
++------------+----------+
+| Shanta     |  6500.00 |
+| Peter      | 10000.00 |
+| David      |  9500.00 |
+| Oliver     |  7000.00 |
+| Janette    | 10000.00 |
+| Patrick    |  9500.00 |
+| Sarath     |  7000.00 |
+| Danielle   |  9500.00 |
+| Harrison   | 10000.00 |
+| Jonathon   |  8600.00 |
+| Kimberely  |  7000.00 |
+| Jennifer   |  4400.00 |
+| Susan      |  6500.00 |
+| Hermann    | 10000.00 |
++------------+----------+
+14 rows in set (0.001 sec)
+
+Q6)
+
+MariaDB [hr]> SELECT department_id, MAX(salary) from employees GROUP BY department_id;
++---------------+-------------+
+| department_id | MAX(salary) |
++---------------+-------------+
+|          NULL |     7000.00 |
+|            10 |     4400.00 |
+|            20 |    13000.00 |
+|            30 |    11000.00 |
+|            40 |     6500.00 |
+|            50 |     8200.00 |
+|            60 |     9000.00 |
+|            70 |    10000.00 |
+|            80 |    14000.00 |
+|            90 |    24000.00 |
+|           100 |    12000.00 |
+|           110 |    12000.00 |
++---------------+-------------+
+12 rows in set (0.001 sec)
+
+
+Q7)
+
+MariaDB [hr]> SELECT department_id,job_title,first_name,job_id from employees natural join jobs
+    -> where department_id='20';
++---------------+--------------------------+------------+--------+
+| department_id | job_title                | first_name | job_id |
++---------------+--------------------------+------------+--------+
+|            20 | Marketing Manager        | Michael    | MK_MAN |
+|            20 | Marketing Representative | Pat        | MK_REP |
++---------------+--------------------------+------------+--------+
+2 rows in set (0.000 sec)
+
+
+
+Q9)
+
+
+MariaDB [hr]> select first_name,last_name,department_name from employees natural join departments where department_name='Finance';
++-------------+-----------+-----------------+
+| first_name  | last_name | department_name |
++-------------+-----------+-----------------+
+| Daniel      | Faviet    | Finance         |
+| John        | Chen      | Finance         |
+| Ismael      | Sciarra   | Finance         |
+| Jose Manuel | Urman     | Finance         |
+| Luis        | Popp      | Finance         |
++-------------+-----------+-----------------+
+5 rows in set (0.000 sec)
+
+
+
+Q10)
+MariaDB [hr]> select city,first_name,last_name from employees natural join locations
+    -> where city='Toronto';
++---------+-------------+-------------+
+| city    | first_name  | last_name   |
++---------+-------------+-------------+
+| Toronto | Steven      | King        |
+| Toronto | Neena       | Kochhar     |
+| Toronto | Lex         | De Haan     |
+| Toronto | Alexander   | Hunold      |
+| Toronto | Bruce       | Ernst       |
+| Toronto | David       | Austin      |
+| Toronto | Valli       | Pataballa   |
+| Toronto | Diana       | Lorentz     |
+| Toronto | Nancy       | Greenberg   |
+| Toronto | Daniel      | Faviet      |
+| Toronto | John        | Chen        |
+| Toronto | Ismael      | Sciarra     |
+| Toronto | Jose Manuel | Urman       |
+| Toronto | Luis        | Popp        |
+| Toronto | Den         | Raphaely    |
+| Toronto | Alexander   | Khoo        |
+| Toronto | Shelli      | Baida       |
+| Toronto | Sigal       | Tobias      |
+| Toronto | Guy         | Himuro      |
+| Toronto | Karen       | Colmenares  |
+| Toronto | Matthew     | Weiss       |
+| Toronto | Adam        | Fripp       |
+| Toronto | Payam       | Kaufling    |
+| Toronto | Shanta      | Vollman     |
+| Toronto | Kevin       | Mourgos     |
+| Toronto | Julia       | Nayer       |
+| Toronto | Irene       | Mikkilineni |
+| Toronto | James       | Landry      |
+| Toronto | Steven      | Markle      |
+| Toronto | Laura       | Bissot      |
+| Toronto | Mozhe       | Atkinson    |
+| Toronto | James       | Marlow      |
+| Toronto | TJ          | Olson       |
+| Toronto | Jason       | Mallin      |
+| Toronto | Michael     | Rogers      |
+| Toronto | Ki          | Gee         |
+| Toronto | Hazel       | Philtanker  |
+| Toronto | Renske      | Ladwig      |
+| Toronto | Stephen     | Stiles      |
+| Toronto | John        | Seo         |
+| Toronto | Joshua      | Patel       |
+| Toronto | Trenna      | Rajs        |
+| Toronto | Curtis      | Davies      |
+| Toronto | Randall     | Matos       |
+| Toronto | Peter       | Vargas      |
+| Toronto | John        | Russell     |
+| Toronto | Karen       | Partners    |
+| Toronto | Alberto     | Errazuriz   |
+| Toronto | Gerald      | Cambrault   |
+| Toronto | Eleni       | Zlotkey     |
+| Toronto | Peter       | Tucker      |
+| Toronto | David       | Bernstein   |
+| Toronto | Peter       | Hall        |
+| Toronto | Christopher | Olsen       |
+| Toronto | Nanette     | Cambrault   |
+| Toronto | Oliver      | Tuvault     |
+| Toronto | Janette     | King        |
+| Toronto | Patrick     | Sully       |
+| Toronto | Allan       | McEwen      |
+| Toronto | Lindsey     | Smith       |
+| Toronto | Louise      | Doran       |
+| Toronto | Sarath      | Sewall      |
+| Toronto | Clara       | Vishney     |
+| Toronto | Danielle    | Greene      |
+| Toronto | Mattea      | Marvins     |
+| Toronto | David       | Lee         |
+| Toronto | Sundar      | Ande        |
+| Toronto | Amit        | Banda       |
+| Toronto | Lisa        | Ozer        |
+| Toronto | Harrison    | Bloom       |
+| Toronto | Tayler      | Fox         |
+| Toronto | William     | Smith       |
+| Toronto | Elizabeth   | Bates       |
+| Toronto | Sundita     | Kumar       |
+| Toronto | Ellen       | Abel        |
+| Toronto | Alyssa      | Hutton      |
+| Toronto | Jonathon    | Taylor      |
+| Toronto | Jack        | Livingston  |
+| Toronto | Kimberely   | Grant       |
+| Toronto | Charles     | Johnson     |
+| Toronto | Winston     | Taylor      |
+| Toronto | Jean        | Fleaur      |
+| Toronto | Martha      | Sullivan    |
+| Toronto | Girard      | Geoni       |
+| Toronto | Nandita     | Sarchand    |
+| Toronto | Alexis      | Bull        |
+| Toronto | Julia       | Dellinger   |
+| Toronto | Anthony     | Cabrio      |
+| Toronto | Kelly       | Chung       |
+| Toronto | Jennifer    | Dilly       |
+| Toronto | Timothy     | Gates       |
+| Toronto | Randall     | Perkins     |
+| Toronto | Sarah       | Bell        |
+| Toronto | Britney     | Everett     |
+| Toronto | Samuel      | McCain      |
+| Toronto | Vance       | Jones       |
+| Toronto | Alana       | Walsh       |
+| Toronto | Kevin       | Feeney      |
+| Toronto | Donald      | OConnell    |
+| Toronto | Douglas     | Grant       |
+| Toronto | Jennifer    | Whalen      |
+| Toronto | Michael     | Hartstein   |
+| Toronto | Pat         | Fay         |
+| Toronto | Susan       | Mavris      |
+| Toronto | Hermann     | Baer        |
+| Toronto | Shelley     | Higgins     |
+| Toronto | William     | Gietz       |
++---------+-------------+-------------+
+107 rows in set (0.000 sec)
+
+
+
+Q11)
+
+MariaDB [hr]> select first_name,last_name,job_title,department_name,city from employees natural join jobs natural join departments natural join lOCATIONS;
++-------------+------------+-------------------------------+-----------------+---------------------+
+| first_name  | last_name  | job_title                     | department_name | city                |
++-------------+------------+-------------------------------+-----------------+---------------------+
+| William     | Gietz      | Public Accountant             | Accounting      | Seattle             |
+| Neena       | Kochhar    | Administration Vice President | Executive       | Seattle             |
+| Lex         | De Haan    | Administration Vice President | Executive       | Seattle             |
+| Daniel      | Faviet     | Accountant                    | Finance         | Seattle             |
+| John        | Chen       | Accountant                    | Finance         | Seattle             |
+| Ismael      | Sciarra    | Accountant                    | Finance         | Seattle             |
+| Jose Manuel | Urman      | Accountant                    | Finance         | Seattle             |
+| Luis        | Popp       | Accountant                    | Finance         | Seattle             |
+| Bruce       | Ernst      | Programmer                    | IT              | Southlake           |
+| David       | Austin     | Programmer                    | IT              | Southlake           |
+| Valli       | Pataballa  | Programmer                    | IT              | Southlake           |
+| Diana       | Lorentz    | Programmer                    | IT              | Southlake           |
+| Pat         | Fay        | Marketing Representative      | Marketing       | Toronto             |
+| Alexander   | Khoo       | Purchasing Clerk              | Purchasing      | Seattle             |
+| Shelli      | Baida      | Purchasing Clerk              | Purchasing      | Seattle             |
+| Sigal       | Tobias     | Purchasing Clerk              | Purchasing      | Seattle             |
+| Guy         | Himuro     | Purchasing Clerk              | Purchasing      | Seattle             |
+| Karen       | Colmenares | Purchasing Clerk              | Purchasing      | Seattle             |
+| Peter       | Tucker     | Sales Representative          | Sales           | Oxford              |
+| David       | Bernstein  | Sales Representative          | Sales           | Oxford              |
+| Peter       | Hall       | Sales Representative          | Sales           | Oxford              |
+| Christopher | Olsen      | Sales Representative          | Sales           | Oxford              |
+| Nanette     | Cambrault  | Sales Representative          | Sales           | Oxford              |
+| Oliver      | Tuvault    | Sales Representative          | Sales           | Oxford              |
+| Nandita     | Sarchand   | Shipping Clerk                | Shipping        | South San Francisco |
+| Alexis      | Bull       | Shipping Clerk                | Shipping        | South San Francisco |
+| Julia       | Dellinger  | Shipping Clerk                | Shipping        | South San Francisco |
+| Anthony     | Cabrio     | Shipping Clerk                | Shipping        | South San Francisco |
+| Laura       | Bissot     | Stock Clerk                   | Shipping        | South San Francisco |
+| Mozhe       | Atkinson   | Stock Clerk                   | Shipping        | South San Francisco |
+| James       | Marlow     | Stock Clerk                   | Shipping        | South San Francisco |
+| TJ          | Olson      | Stock Clerk                   | Shipping        | South San Francisco |
++-------------+------------+-------------------------------+-----------------+---------------------+
+32 rows in set (0.001 sec)
+
+
+
+Q13)
+
+
+MariaDB [hr]> select first_name,last_name,job_title,department_name,city,country_name,region_id from EMPLOYEES natural join LOCATIONS natural join COUNTRIES natural join JOBS natural join DEPARTMENTS ;
++-------------+------------+-------------------------------+-----------------+---------------------+--------------------------+-----------+
+| first_name  | last_name  | job_title                     | department_name | city                | country_name             | region_id |
++-------------+------------+-------------------------------+-----------------+---------------------+--------------------------+-----------+
+| William     | Gietz      | Public Accountant             | Accounting      | Seattle             | United States of America |         2 |
+| Neena       | Kochhar    | Administration Vice President | Executive       | Seattle             | United States of America |         2 |
+| Lex         | De Haan    | Administration Vice President | Executive       | Seattle             | United States of America |         2 |
+| Daniel      | Faviet     | Accountant                    | Finance         | Seattle             | United States of America |         2 |
+| John        | Chen       | Accountant                    | Finance         | Seattle             | United States of America |         2 |
+| Ismael      | Sciarra    | Accountant                    | Finance         | Seattle             | United States of America |         2 |
+| Jose Manuel | Urman      | Accountant                    | Finance         | Seattle             | United States of America |         2 |
+| Luis        | Popp       | Accountant                    | Finance         | Seattle             | United States of America |         2 |
+| Bruce       | Ernst      | Programmer                    | IT              | Southlake           | United States of America |         2 |
+| David       | Austin     | Programmer                    | IT              | Southlake           | United States of America |         2 |
+| Valli       | Pataballa  | Programmer                    | IT              | Southlake           | United States of America |         2 |
+| Diana       | Lorentz    | Programmer                    | IT              | Southlake           | United States of America |         2 |
+| Pat         | Fay        | Marketing Representative      | Marketing       | Toronto             | Canada                   |         2 |
+| Alexander   | Khoo       | Purchasing Clerk              | Purchasing      | Seattle             | United States of America |         2 |
+| Shelli      | Baida      | Purchasing Clerk              | Purchasing      | Seattle             | United States of America |         2 |
+| Sigal       | Tobias     | Purchasing Clerk              | Purchasing      | Seattle             | United States of America |         2 |
+| Guy         | Himuro     | Purchasing Clerk              | Purchasing      | Seattle             | United States of America |         2 |
+| Karen       | Colmenares | Purchasing Clerk              | Purchasing      | Seattle             | United States of America |         2 |
+| Peter       | Tucker     | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| David       | Bernstein  | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| Peter       | Hall       | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| Christopher | Olsen      | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| Nanette     | Cambrault  | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| Oliver      | Tuvault    | Sales Representative          | Sales           | Oxford              | United Kingdom           |         1 |
+| Nandita     | Sarchand   | Shipping Clerk                | Shipping        | South San Francisco | United States of America |         2 |
+| Alexis      | Bull       | Shipping Clerk                | Shipping        | South San Francisco | United States of America |         2 |
+| Julia       | Dellinger  | Shipping Clerk                | Shipping        | South San Francisco | United States of America |         2 |
+| Anthony     | Cabrio     | Shipping Clerk                | Shipping        | South San Francisco | United States of America |         2 |
+| Laura       | Bissot     | Stock Clerk                   | Shipping        | South San Francisco | United States of America |         2 |
+| Mozhe       | Atkinson   | Stock Clerk                   | Shipping        | South San Francisco | United States of America |         2 |
+| James       | Marlow     | Stock Clerk                   | Shipping        | South San Francisco | United States of America |         2 |
+| TJ          | Olson      | Stock Clerk                   | Shipping        | South San Francisco | United States of America |         2 |
++-------------+------------+-------------------------------+-----------------+---------------------+--------------------------+-----------+
+32 rows in set (0.003 sec)
+
+
+Q14)
+
+MariaDB [hr]> select min_salary,department_id from JOBS natural join departments
+    -> where min_salary<5000 group by department_id ;
++------------+---------------+
+| min_salary | department_id |
++------------+---------------+
+|       4200 |            10 |
+|       4200 |            20 |
+|       4200 |            30 |
+|       4200 |            40 |
+|       4200 |            50 |
+|       4200 |            60 |
+|       4200 |            70 |
+|       4200 |            80 |
+|       4200 |            90 |
+|       4200 |           100 |
+|       4200 |           110 |
+|       4200 |           120 |
+|       4200 |           130 |
+|       4200 |           140 |
+|       4200 |           150 |
+|       4200 |           160 |
+|       4200 |           170 |
+|       4200 |           180 |
+|       4200 |           190 |
+|       4200 |           200 |
+|       4200 |           210 |
+|       4200 |           220 |
+|       4200 |           230 |
+|       4200 |           240 |
+|       4200 |           250 |
+|       4200 |           260 |
+|       4200 |           270 |
++------------+---------------+
+27 rows in set (0.001 sec)
+
+
+
+Q16)
+
+ select "wordius",(select department_id),"wording",(select location_id),"words",(select department_id) from departments;
++---------+------------------------+---------+----------------------+-------+------------------------+
+| wordius | (select department_id) | wording | (select location_id) | words | (select department_id) |
++---------+------------------------+---------+----------------------+-------+------------------------+
+| wordius |                     60 | wording |                 1400 | words |                     60 |
+| wordius |                     50 | wording |                 1500 | words |                     50 |
+| wordius |                     10 | wording |                 1700 | words |                     10 |
+| wordius |                     30 | wording |                 1700 | words |                     30 |
+| wordius |                     90 | wording |                 1700 | words |                     90 |
+| wordius |                    100 | wording |                 1700 | words |                    100 |
+| wordius |                    110 | wording |                 1700 | words |                    110 |
+| wordius |                    120 | wording |                 1700 | words |                    120 |
+| wordius |                    130 | wording |                 1700 | words |                    130 |
+| wordius |                    140 | wording |                 1700 | words |                    140 |
+| wordius |                    150 | wording |                 1700 | words |                    150 |
+| wordius |                    160 | wording |                 1700 | words |                    160 |
+| wordius |                    170 | wording |                 1700 | words |                    170 |
+| wordius |                    180 | wording |                 1700 | words |                    180 |
+| wordius |                    190 | wording |                 1700 | words |                    190 |
+| wordius |                    200 | wording |                 1700 | words |                    200 |
+| wordius |                    210 | wording |                 1700 | words |                    210 |
+| wordius |                    220 | wording |                 1700 | words |                    220 |
+| wordius |                    230 | wording |                 1700 | words |                    230 |
+| wordius |                    240 | wording |                 1700 | words |                    240 |
+| wordius |                    250 | wording |                 1700 | words |                    250 |
+| wordius |                    260 | wording |                 1700 | words |                    260 |
+| wordius |                    270 | wording |                 1700 | words |                    270 |
+| wordius |                     20 | wording |                 1800 | words |                     20 |
+| wordius |                     40 | wording |                 2400 | words |                     40 |
+| wordius |                     80 | wording |                 2500 | words |                     80 |
+| wordius |                     70 | wording |                 2700 | words |                     70 |
++---------+------------------------+---------+----------------------+-------+------------------------+
+27 rows in set (0.001 sec)

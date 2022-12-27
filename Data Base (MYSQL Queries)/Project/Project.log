@@ -1,0 +1,215 @@
+Multi-OEM/Retail Project Version : CY19M08D18-R116.0.BL - BaseLine [MRP via MDL Forum ONLY] 
+ 
+The extracted OEM's folder structure appears correct. 
+ 
+Installed DotNet Framework{s} : v1.1.4322, v2.0.50727, v3.5, v4.0.30319, v4.8.x or later {Rev:528040} 
+Installed Powershell Versions : 1.0, 2.0, 3.0, 4.0, 5.0, 5.1 
+Using 'MRPConfig.ini' File    : No - Using default settings. 
+ 
+MRP Extra Debug Logging Mode  : Enabled  - Log saved to 'C:\MRPDebug1.log' 
+W10 TitleBar Color            : Disabled - Default Color of theme will be used. 
+Hi-Lite Colorization          : Disabled - Default Color of theme will be used. 
+Change Lock/Login Screen's    : Enabled  - Screen's will be replaced as defined by user option. 
+Confirm File Delete           : Disabled - User is not notified when a file/folder is being deleted. 
+Show 'ThisPC' On Desktop      : Disabled - The icon is not displayed on the Desktop. 
+ 
+[START]  
+[OSINF] ============================================================= 
+[OSINF] =================[ Detected OS Information ]================= 
+[OSINF] ============================================================= 
+[OSINF] OS Install Date/Time  : 09/26/2021 {UTC} -- 06:45am 
+[OSINF] Installation Type     : Client {Non Server} 
+[OSINF] HyperVisor Detected   : No 
+[OSINF] Domain Detected       : No 
+[OSINF] Version {SKU}         : Windows 10 Pro {48} 
+[OSINF] Edition {Registry}    : Professional {48} 
+[OSINF] Edition {Composition} : Enterprise 
+[OSINF] Architecture          : 64 Bit {AR:1} 
+[OSINF] Release Identifier    : 1909 
+[OSINF] Build Information     : 18362.1.amd64fre.19h1_release.190318-1202 
+[OSINF] Reference Version     : 10.0.18362.1 
+[OSINF] ProductID Reference   : 3308 
+[OSINF] Update Build Revision : 476 
+[OSINF] Base Build Rev Number : 1 {0x1h} 
+[OSINF] Edition UILang/Code   : en-US / 1033 {0x409h} 
+[OSINF] Locale                : English – United States 
+[OSINF] Time Zone Data        : Pacific Standard Time 
+[OSINF] Daylight Saving Mode  : Yes 
+[MBINF] ============================================================= 
+[MBINF] =================[ Motherboard Information ]================= 
+[MBINF] ============================================================= 
+[MBINF] #01 CS Product Name   : [Latitude E7270]  
+[MBINF] #02 CS Model Name     : [Latitude E7270]  
+[MBINF] #03 Baseboard Product : [0K4CNR]  
+[MBINF] #04 CS Vendor Name    : [Dell Inc.]  
+[MBINF] #05 CS System Name    : [Dell Inc.]  
+[MBINF] #06 Baseboard Name    : [Dell Inc.]  
+[MBINF] #08 BIOS or SLIC ID 1 : [DELL   - 1072009]  
+[MBINF] #09 SLIC Information  : [v2.1]  
+[MBINF] #11 MSDM Information  : [Invalid MSDM Table Data]  
+[MBINF] Chassis Type {09}     : [Laptop]  
+[MBINF] PC System Type        : [Mobile {0x2}]  
+[BDINF] ============================================================= 
+[BDINF] ==================[ Main BIOS Information ]================== 
+[BDINF] ============================================================= 
+[BDINF] Manufacturer          : [Dell Inc.]  
+[BDINF] Version               : [1.18.5]  
+[BDINF] Release Date          : [12/11/2017]  
+[MPINF] ============================================================= 
+[MPINF] ===================[ Processor Information ]================= 
+[MPINF] ============================================================= 
+[MPINF] Full Name             : [Intel{R} Core{TM} i7-6600U CPU @ 2.60GHz]  
+[MPINF] Description           : [Intel64 Family 6 Model 78 Stepping 3]  
+[MPINF] Architecture          : [32/64 Bit]  
+[MPINF] Max Clock Speed       : [2.8 GHz] {Rounded Value}  
+[MPINF] Manufacturer ID Data  : [GenuineIntel]  
+[MPINF] CPUID Signature       : [0406E3]  
+[MPINF] Revision Number       : [4e03]  
+[MPINF] Sockets/CPU's Present : [1]  
+[MPINF] Cores/Threads         : [2] / [4]  
+[MPINF] VT Firmware Mode      : [Enabled]  
+[MMINF] ============================================================= 
+[MMINF] ====================[ Memory Information ]=================== 
+[MMINF] ============================================================= 
+[MMINF] Total Physical        : 7.69 GB  
+[MMINF] Used During Setup     : 644.95 MB  
+[MMINF] Available             : 7.06 GB [91.81%] 
+[MMINF] Type Number           : 3  
+[MMINF] Design Type           : DDR4  
+[MMINF] Category              : Non-ECC  
+[MMINF] Max Board Sockets     : 2 - May vary depending on the Motherboard's original test design or revision.  
+[MMINF] Max Capacity          : 32768 MB - Depends on the Chipset's memory array, 4GB or below could mean per slot.  
+[MMINF] Max Per Socket/Slot   : 16384 MB {Approx Value}  
+[MELSP] ============================================================= 
+[MELSP] ===============[ Intel: Meltdown/Spectre Data ]============== 
+[MELSP] ============================================================= 
+[MELSP] CPU Performance Rating - Good 
+[MELSP] This system appears to be protected against Meltdown and most of the current Spectre variants. 
+[MELSP] This CPU supports low-overhead protection. 
+[MELSP] Checked using 'InSpectre' from Gibson Research, https://www.grc.com/inspectre.htm 
+[SUOEA] ============================================================= 
+[SUOEA] ===[ Show Other User Options Applied/Enabled Or Disabled ]=== 
+[SUOEA] ============================================================= 
+[SUOEA] =====================[ Applied Options ]===================== 
+[SUOEA] ============================================================= 
+[CPANV] Control Panel's view set to Category {Default}.  
+[SATCM] No 'Administrative Tools' context menu items was selected for addition. 
+[AAFAS] Allow Apps from anywhere, default setting.  
+[SUOEA] ============================================================= 
+[SUOEA] =====================[ Enabled Options ]===================== 
+[SUOEA] ============================================================= 
+[SUOEA] No other User selected 'Enabled' options used. 
+[SUOEA] ============================================================== 
+[SUOEA] ===================[ Disabled MRP Options ]=================== 
+[SUOEA] ============================================================== 
+[SUOEA] No 'Disabled' MRP options. 
+[REPDR] ====================================================== 
+[REPDR] ===[ Retail.txt/Ei.cfg/PID.txt Detection Routines ]=== 
+[REPDR] ====================================================== 
+[REPDR] Note: Some results may return as 'not detected' if the install medium was removed during OS installation. 
+[REPDR] The 'Retail.txt' file was not detected within the 'Scripts' folder. 
+[REPDR] The 'ei.cfg' file was not detected.  
+[REPDR] The 'PID.txt' file was not detected.  
+[CKDMI] ============================================================= 
+[CKDMI] ===[ Querying DMI For OEM Manufacturer Brand Information ]=== 
+[CKDMI] ============================================================= 
+[CKDCF] No DMI conflicts found. 
+[CKDCF] DMI query routine completed. 
+[THMOK] Dell [#04] manufacturer was detected for automated theme/branding. 
+[SYSPD] ======================================= 
+[SYSPD] ===[ Model Name Processing Routine ]=== 
+[SYSPD] ======================================= 
+[SETMN] BIOS defined 'Latitude E7270' model name has been applied. 
+[TBPRT] =================================== 
+[TBPRT] ===[ Theme Processing Routines ]=== 
+[TBPRT] =================================== 
+[USRFT] User specified theme was not defined.  
+[TBTMS] =========================================== 
+[TBTMS] ===[ Brand Transfer Management Routine ]=== 
+[TBTMS] =========================================== 
+[RMXML] OOBE.xml file has been processed. 
+[WPCHK] Wallpaper.jpg transferred. 
+[BGDFC] Desktop 'Backgrounds' folder has been created. 
+[BGDFC] The 'BackgroundDefault.jpg' file was created from 'Wallpaper.jpg'. 
+[W8XAP] ============================================== 
+[W8XAP] ===[ Main User Account Picture Management ]=== 
+[W8XAP] ============================================== 
+[UBREP] User.bmp replaced. 
+[UPREP] User.png replaced. 
+[WXAP2] ===================================================== 
+[WXAP2] ===[ Additional User Account Pictures Management ]=== 
+[WXAP2] ===================================================== 
+[UPREP] User-32.png replaced.  
+[UPREP] User-40.png replaced. 
+[UPREP] User-48.png replaced.  
+[UPREP] User-192.png replaced.  
+[X8LLR] ==================================== 
+[X8LLR] ===[ Lock/Login Screen Routines ]=== 
+[X8LLR] ==================================== 
+[WX8LS] Lock Screen 'img100' was replaced. Original renamed as img0100. 
+[WX8LI] Log-In Background 'img105' was replaced. Original renamed as img0105. 
+[OTFTR] ============================================ 
+[OTFTR] ===[ Brand/Theme Files Transfer Routine ]=== 
+[OTFTR] ============================================ 
+[OTFTR] The Brand theme folder was created. 
+[OTFTR] Theme files have been transferred. 
+[ATREP] Aero.theme was backed up and replaced. 
+[ATHBA] Dell OEM brand theme has been applied.  
+[SCFLD] ==================================================== 
+[SCFLD] ===[ SetupComplete/FirstLogOn Scripts Detection ]=== 
+[SCFLD] ==================================================== 
+[SCDET] Note: SetupComplete.cmd was detected. 
+[NOTES] May cause malfunction of the project if deletion of the 'Scripts' folder is done within this file. 
+[BSHCS] =================================== 
+[BSHCS] ===[ Primary Script Completion ]=== 
+[BSHCS] =================================== 
+[BSHCS] Branding script has completed. The SetupComplete.cmd script will now be run via Windows Setup. 
+[RBOOT] 
+[ADMAN] =================================================== 
+[ADMAN] ============[ Add-On Manager: Started ]============ 
+[ADMAN] =================================================== 
+[TFFIB] Theme registry tweak for build 18363 applied. Reboot required after setup completed. 
+[SATOU] =================================================== 
+[SATOU] ====[ User Options that have now been applied ]==== 
+[SATOU] =================================================== 
+[SATOU] There are no pending selected options to be 'Applied'. 
+[USR10] ==================================================================================== 
+[USR10] ===[ Theme Colorization, User Account Pictures And Remove DefaultUser0 Routines ]=== 
+[USR10] ==================================================================================== 
+[USRAC] The 'Enhanced' Log-On screen registry entry has been applied. 
+[USRAC] User Account Picture's registry entries applied.  
+[USRRO] Windows 'Registered Owner' {Winver} registry entry corrected to primary username. 
+[USRD0] The 'defaultuser0' account was present, removal process has started. 
+[RDUPM] Removal of the 'defaultuser0' account was successful. 
+[AMBPS] ================================================================= 
+[AMBPS] ===[ Check BIOS/Boot Mode, OS Partition Type/Controller Mode ]=== 
+[AMBPS] ================================================================= 
+[AMBPS] BIOS/Boot Mode  : {A} Legacy 
+[AMBPS] Partition Type  : {W} MBR 
+[AMHDC] Controller Mode : {I} AHCI 
+[CHKLS] ============================================= 
+[CHKLS] ===[ Detecting License\Activation Status ]=== 
+[CHKLS] ============================================= 
+[CHKLS] License/Activation Status  : Notification 
+[CHKLS] License Channel Status     : Retail {PKC} 
+[CHKLS] License Status Reason Code : 0xC004F034 
+[CHKLS] License not found/invalid or could not connect to the Activation Server. 
+[CHKLS] Online connection maybe required to complete activation. 
+[ADMAN] =============================== 
+[ADMAN] ===[ Finalization Routines ]=== 
+[ADMAN] =============================== 
+[CLNUP] Clean Up Routine Processed. 
+[ADMAN] =================================== 
+[ADMAN] ===[ Add-On Manager: Completed ]=== 
+[ADMAN] =================================== 
+[ENDAM] 
+[ENDAM] ========================================================================================= 
+[ENDAM] =                                                                                       = 
+[ENDAM] = Please Note: As User options, UserTweaks or Wintel scripts have been detected it is   = 
+[ENDAM] =              required for a reboot cycle to allow these options/tweaks to take full   = 
+[ENDAM] =              effect. This also allows any Theme related processes to complete.        = 
+[ENDAM] =                                                                                       = 
+[ENDAM] ========================================================================================= 
+[ENDED] 
+The Multi-OEM/Retail Project has completed. 
+ 

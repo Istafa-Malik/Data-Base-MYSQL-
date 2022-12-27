@@ -1,0 +1,64 @@
+1:
+
+DELIMITER $$
+ CREATE PROCEDURE TASK1()
+    BEGIN
+    INSERT INTO SUMMARY VALUES (2,4,2,0,5);
+    END$$
+  CALL TASK1$$
+SELECT * FROM SUMMARY$$
+
+
+
+2:
+
+CREATE PROCEDURE TASK3()
+BEGIN
+INSERT INTO USERS VALUES(4, 'Umar','Khan','Umar@GMAIL.COM',5000);
+END$$
+
+CALL TASK3$$
+SELECT * FROM USERS$$
+
+
+
+3:
+
+SELECT MIN(SALARY) FROM USERS;
+
+
+4:
+
+
+SELECT AVG(SALARY) FROM USERS;
+
+
+
+5:
+
+
+CREATE PROCEDURE MINMAX()
+BEGIN
+SELECT MIN(SALARY) FROM USERS;
+SELECT MAX(salary) FROM USERS;
+END$$
+CALL MINMAX$$
+
+6:
+
+Delimiter $$
+create trigger task7a after insert
+on person.users
+for each row begin
+insert into person.summary (TOTAL_USER) values (NEW.user_id);
+end$$
+
+insert into users (username,password,email) values ('Arham','Khan','Khang@gmail.com')$$
+select * from users$$
+select * from summary$$
+
+
+insert into users (username,password,email) values ('p190077','cs','19cs@gmail.com')$$
+select * from users$$
+select * from summary$$
+

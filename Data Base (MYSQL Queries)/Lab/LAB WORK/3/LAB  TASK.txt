@@ -1,0 +1,162 @@
+6.1://
+
+
+MariaDB [p190033_istafa]> CREATE VIEW EMPFR AS
+    -> SELECT *
+    -> FROM EMPLOYEE
+    -> WHERE PARK_CODE='FR1001'
+    -> WITH CHECK OPTION;
+Query OK, 0 rows affected (0.046 sec)
+
+MariaDB [p190033_istafa]> UPDATE EMPFR
+    -> SET EMP_PHONE='324-9652'
+    -> WHERE EMP_NUM=100;
+Query OK, 1 row affected (0.067 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [p190033_istafa]> SELECT * FROM EMPFR;
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+| EMP_NUM | EMP_TITLE | EMP_LNAME  | EMP_FNAME | EMP_DOB    | EMP_HIRE_DATE | EMP_AREA_CODE | EMP_PHONE | PARK_CODE |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+|     100 | Ms        | Calderdale | Emma      | 1972-06-15 | 1992-03-15    | 0181          | 324-9652  | FR1001    |
+|     102 | Mr        | Arshad     | Arif      | 1969-11-14 | 1990-12-20    | 7253          | 675-8993  | FR1001    |
+|     105 | Ms        | Namowa     | Mirrelle  | 1990-03-14 | 2006-11-08    | 0181          | 890-3243  | FR1001    |
++---------+-----------+------------+-----------+------------+---------------+---------------+-----------+-----------+
+3 rows in set (0.003 sec)
+
+
+
+6.2://
+
+
+
+MariaDB [p190033_istafa]> CREATE VIEW EMP_WORKED AS SELECT
+    -> EMP_NUM,PARK_CODE,PARK_NAME,EMP_LNAME,EMP_FNAME,EMP_HIRE_DATE,EMP_DOB FROM EMPLOYEE NATURAL JOIN THEMEPARK;
+Query OK, 0 rows affected (0.040 sec)
+
+MariaDB [p190033_istafa]> SELECT *FROM EMP_WORKED;
++---------+-----------+--------------+------------+-----------+---------------+------------+
+| EMP_NUM | PARK_CODE | PARK_NAME    | EMP_LNAME  | EMP_FNAME | EMP_HIRE_DATE | EMP_DOB    |
++---------+-----------+--------------+------------+-----------+---------------+------------+
+|     100 | FR1001    | FairyLand    | Calderdale | Emma      | 1992-03-15    | 1972-06-15 |
+|     101 | UK3452    | PleasureLand | Ricardo    | Marshel   | 1996-04-25    | 1978-03-19 |
+|     102 | FR1001    | FairyLand    | Arshad     | Arif      | 1990-12-20    | 1969-11-14 |
+|     103 | UK3452    | PleasureLand | Roberts    | Anne      | 1994-08-16    | 1974-10-16 |
+|     104 | ZA1342    | GoldTown     | Denver     | Enrica    | 2001-10-20    | 1980-11-08 |
+|     105 | FR1001    | FairyLand    | Namowa     | Mirrelle  | 2006-11-08    | 1990-03-14 |
+|     106 | ZA1342    | GoldTown     | Smith      | Gemma     | 1989-01-05    | 1968-02-12 |
++---------+-----------+--------------+------------+-----------+---------------+------------+
+7 rows in set (0.003 sec)
+
+6.3://
+
+
+
+MariaDB [p190033_istafa]> SELECT EMP_LNAME, EMP_FNAME,PARK_NAME
+    -> FROM EMPLOYEE NATURAL JOIN THEMEPARK;
++------------+-----------+--------------+
+| EMP_LNAME  | EMP_FNAME | PARK_NAME    |
++------------+-----------+--------------+
+| Calderdale | Emma      | FairyLand    |
+| Ricardo    | Marshel   | PleasureLand |
+| Arshad     | Arif      | FairyLand    |
+| Roberts    | Anne      | PleasureLand |
+| Denver     | Enrica    | GoldTown     |
+| Namowa     | Mirrelle  | FairyLand    |
+| Smith      | Gemma     | GoldTown     |
++------------+-----------+--------------+
+7 rows in set (0.001 sec)
+
+MariaDB [p190033_istafa]>
+
+
+6.4://
+
+
+
+MariaDB [p190033_istafa]> SELECT * FROM TICKET_SALES;
+ERROR 1146 (42S02): Table 'p190033_istafa.ticket_sales' doesn't exist
+MariaDB [p190033_istafa]> SELECT
+    -> PARK_NAME,MIN(LINE_PRICE),MAX(LINE_PRICE),AVG(LINE_PRICE) FROM THEMEPARK NATURAL JOIN SALES NATURAL JOIN SALES_LINE GROUP BY PARK_NAME;
++--------------+-----------------+-----------------+-----------------+
+| PARK_NAME    | MIN(LINE_PRICE) | MAX(LINE_PRICE) | AVG(LINE_PRICE) |
++--------------+-----------------+-----------------+-----------------+
+| FairyLand    |           14.99 |          139.96 |       50.232500 |
+| GoldTown     |           12.12 |          114.68 |       47.637778 |
+| PleasureLand |           21.98 |          168.40 |       60.785714 |
++--------------+-----------------+-----------------+-----------------+
+3 rows in set (0.009 sec)
+
+
+
+6.5://
+
+
+
+MariaDB [p190033_istafa]> SELECT DISTINCT(DATE_FORMAT(SALE_DATE,'%a %d %m %Y')) FROM SALES;E
++----------------------------------------+
+| (DATE_FORMAT(SALE_DATE,'%a %d %m %Y')) |
++----------------------------------------+
+| Fri 18 05 2007                         |
++----------------------------------------+
+1 row in set (0.004 sec)
+
+
+
+6.6://
+
+
+
+MariaDB [p190033_istafa]> SELECT
+    -> emp_fname,emp_lname,emp_dob,concat(date_format(emp_dob,'%m'),'01',UPPER(SUBSTR(EMP_LNAME, 1, 6))) as user_id from employee;
++-----------+------------+------------+------------+
+| emp_fname | emp_lname  | emp_dob    | user_id    |
++-----------+------------+------------+------------+
+| Emma      | Calderdale | 1972-06-15 | 0601CALDER |
+| Marshel   | Ricardo    | 1978-03-19 | 0301RICARD |
+| Arif      | Arshad     | 1969-11-14 | 1101ARSHAD |
+| Anne      | Roberts    | 1974-10-16 | 1001ROBERT |
+| Enrica    | Denver     | 1980-11-08 | 1101DENVER |
+| Mirrelle  | Namowa     | 1990-03-14 | 0301NAMOWA |
+| Gemma     | Smith      | 1968-02-12 | 0201SMITH  |
++-----------+------------+------------+------------+
+7 rows in set (0.002 sec)
+
+
+
+6.7://
+
+
+
+MariaDB [p190033_istafa]> SELECT EMP_LNAME, EMP_FNAME, EMP_DOB,
+    -> DATE_FORMAT(EMP_DOB , '%D') AS DAY FROM EMPLOYEE
+    -> WHERE DAY(EMP_DOB) = '14';
++-----------+-----------+------------+------+
+| EMP_LNAME | EMP_FNAME | EMP_DOB    | DAY  |
++-----------+-----------+------------+------+
+| Arshad    | Arif      | 1969-11-14 | 14th |
+| Namowa    | Mirrelle  | 1990-03-14 | 14th |
++-----------+-----------+------------+------+
+2 rows in set (0.004 sec)
+
+
+6.8:
+
+
+
+MariaDB [p190033_istafa]> SELECT
+    -> emp_fname,emp_phone,concat(substr(emp_phone,1,3), substr(emp_fname,1,2)) as user_id from employee;
++-----------+-----------+---------+
+| emp_fname | emp_phone | user_id |
++-----------+-----------+---------+
+| Emma      | 324-9652  | 324Em   |
+| Marshel   | 324-4472  | 324Ma   |
+| Arif      | 675-8993  | 675Ar   |
+| Anne      | 898-3456  | 898An   |
+| Enrica    | 504-4434  | 504En   |
+| Mirrelle  | 890-3243  | 890Mi   |
+| Gemma     | 324-7845  | 324Ge   |
++-----------+-----------+---------+
+7 rows in set (0.006 sec)
+
+

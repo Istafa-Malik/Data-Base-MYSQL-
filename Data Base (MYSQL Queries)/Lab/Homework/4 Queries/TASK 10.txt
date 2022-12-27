@@ -1,0 +1,30 @@
+1: Create a user with your name
+
+*mysql -u istafa -p
+
+2: Grant Privileges
+
+*GRANT ALL PRIVILEGES ON istafa.* TO 'istafa'@'localhost';
+
+To access the views (SELECT) you have created in themepark
+
+*use istafa;
+
+To create a database. 
+
+*CREATE DATABASE FAST123;
+
+3: Revoke the right to access the view you granted in exercise 2
+ 
+*REVOKE SELECT ON istafa.employee FROM 'istafa'@'localhost';
+
+4: Give a demonstration of commit, rollback and savepoint commands.
+
+Disable the autocommit
+
+*SET AUTOCOMMIT = 0;
+
+Insert some data in any table, update some data in any table. 
+
+*INSERT INTO THEMEPARK VALUE ('FR101','FOREST','LAHORE','PK');
+*UPDATE THEMEPARK SET PARK_NAME = 'DEMO' WHERE PARK_CODE = 'FR1001'; 

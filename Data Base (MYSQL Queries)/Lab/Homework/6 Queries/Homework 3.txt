@@ -1,0 +1,57 @@
+1: List all hotels whose name’s third alphabet has a ‘t’. Order the result in desceding order
+by hotelname.
+
+ANS: select hotelname from hotel where hotelname LIKE "__t%" order by hotelname desc;
+
+2: List all those hotels, rooms which were booked by those guests who are from Glasgow
+and their first name is Tony or last name is Farrel. List the guest detail as well.
+
+ANS: SELECT * from hotel, booking, guest WHERE guestname LIKE "%Tony%" or guestname Like "%Farrel%" and 
+guestaddress= "12 Park Pl Glasgow" or guestaddress="6 Achray St, Glasgow";
+
+3: List the room no. along with its hotel no and hotelname, whose price is second most
+highest.
+
+ANS: select hotelno, hotelname,price from hotel,room order by price desc LIMIT 1,1;
+
+4: List all the room nos. which were booked in the period 2005-2010. Also display the
+room’s hotel no and hotel name.
+
+ANS: select roomno, hotelno, hotelname from  hotel,room,booking where datefrom AND dateto BETWEEN 
+"2004-01-01" AND "2010-01-01";
+
+5: List the room no. along with its hotel no and hotelname, who have third most lowest price
+in the room category of type single.
+
+ANS: select roomno, hotelno,hotelname from  hotel,room,booking where type="single" order by price
+desc limit 2,1;
+
+6: List all the hotel’s name which have double as well as family type rooms.
+
+ANS: select hotelname from hotel,room where type="double" AND type="family";
+
+7: List all the hotels which have single as well as double type rooms but no family type
+room.
+
+ANS: select hotelname from hotel,room where type="single" AND type="double";
+
+8: List all double or family rooms with a price below £40.00 per night, in ascending order of
+price. Also display the room’s hotel no and hotel name.
+
+ANS: select hotelname,hotelno,type from  hotel,room where price < 40.00 AND type="double" OR type="family";
+
+9: List the price and type of all rooms at the Grosvenor Hotel.
+
+ANS: select type, price from  hotel,room where hotelname="Grosvenor";
+
+10: List all guests currently staying at the Watergate Hotel.
+
+ANS: select guestname from hotel,booking,guest where hotelname="Watergate";
+
+11: List those hotels which have greater than 2 rooms.
+
+ANS: select hotelname from  hotel,room where roomno > 2;
+
+12: List the number of rooms in each hotel in London.
+
+ANS: select roomno from hotel,room where city="London";
